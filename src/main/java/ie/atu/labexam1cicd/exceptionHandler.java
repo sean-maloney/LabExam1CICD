@@ -1,4 +1,4 @@
-/*package ie.atu.labexam1cicd;
+package ie.atu.labexam1cicd;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class exceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, string>>display(MethodArgumentNotValidException ex){
+    public ResponseEntity<Map<String, string>> display(MethodArgumentNotValidException ex){
         Map<String, string> errorList = new HashMap<>();
         for(FieldError error: ex.getBindingResult().getFieldErrors()){
             String errorName = error.getField();
@@ -24,5 +24,3 @@ public class exceptionHandler {
         return ResponseEntity.status(400).body(errorList);
     }
 }
-
- */
