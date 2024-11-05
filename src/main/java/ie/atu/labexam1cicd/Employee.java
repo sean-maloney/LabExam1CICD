@@ -1,8 +1,6 @@
 package ie.atu.labexam1cicd;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,21 +11,21 @@ import java.util.StringJoiner;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Employee {
-    //@NotBlank(message = "id cannot be blank")
+    @NotBlank(message = "id cannot be blank")
     private int id;
 
-    //@NotBlank(message = "Name cannot be blank")
+    @Max(value=100, message = "Name cannot be blank")
     private String name;
 
-    //@NotBlank(message = "Email cannot be blank")
+    @Email(message = "Email cannot be blank")
     private String email;
 
-    //NotBlank(message = "Position cannot be blank")
+    @NotBlank(message = "Position cannot be blank")
     private String position;
 
-    //@NotBlank(message = "Salary cannot be blank")
-    private int salary;
+    @Min(value = 0, message = "Salary Must be greater than 0 unless you are an intern")
+    private float salary;
 
-    //@NotBlank(message = "Date of joining cannot be blank")
+    @NotBlank(message = "Date of joining cannot be blank")
     private String dateOfJoining;
 }
